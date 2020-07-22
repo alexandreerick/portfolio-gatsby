@@ -1,41 +1,84 @@
-import React from 'react'
+import React from 'react';
+import { useStaticQuery, graphql } from "gatsby";
+import Img from 'gatsby-image';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 
 import Layout from '../components/Layout';
-import * as Styled from './styles'
+import * as Styled from './styles';
 
-import avatar from '../assets/images/avatar.png';
+// import avatar from '../assets/images/avatar.png';
 
 export default function Home() {
+  const {
+    site: {
+      siteMetadata: {
+        social: {
+          github,
+          linkedin,
+          twitter,
+          gmail
+        }
+      }
+    },
+    avatar
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          social {
+            github
+            linkedin
+            twitter
+            gmail
+          }
+        }
+      },
+      avatar: file(relativePath: { eq: "avatar.png" }) {
+        childImageSharp {
+          fixed(width: 225) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
         <Styled.Container>
           <Styled.Intro>
             <Styled.IntroFoto>
-              <img src={avatar} alt="Minha foto"/>
+              <Img fixed={avatar.childImageSharp.fixed} alt="avatar"/>
             </Styled.IntroFoto>
             <Styled.IntroDescription>
               <h1>Olá, bem-vindo ao meu site! </h1>
-              <p>Meu nome é Erick Alexandre, tenho 21 anos e sou aficionado por tecnologia desde criança. Estou atualmente estudando o ecossistema React.</p>
+              <p>Meu nome é Erick Alexandre, tenho 21 anos e sou aficionado por tecnologia desde criança. Estou atualmente envolvido com o ecossistema React.</p>
             </Styled.IntroDescription>
           </Styled.Intro>
           <Styled.SocialIcons>
             <ul>
               <li>
-                <a href="/">
-                  <FaGithub size={40} />
+                <a href={github} target="_blank" rel="noreferrer">
+                  <FaGithub />
                 </a>
               </li>
 
               <li>
-                <a href="/">
-                  <FaLinkedin size={40} />
+                <a href={linkedin} target="_blank" rel="noreferrer">
+                  <FaLinkedin />
                 </a>
               </li>
 
               <li>
-                <a href="/">
-                  <FaTwitter size={40} />
+                <a href={twitter} target="_blank" rel="noreferrer">
+                  <FaTwitter />
+                </a>
+              </li>
+
+              <li>
+                <a href={gmail} target="_blank" rel="noreferrer">
+                  <FiMail />
                 </a>
               </li>
             </ul>

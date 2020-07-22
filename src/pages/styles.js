@@ -7,8 +7,6 @@ export const Container = styled.div`
   width: 100%;
   max-width: 960px;
   margin: 45px auto;
-  flex-direction: column;
-
 `;
 
 export const Intro = styled.div`
@@ -16,22 +14,37 @@ export const Intro = styled.div`
   justify-content: center;
   align-items: center;
   height: 50vh;
+
+  @media (max-width: 817px) {
+    flex-direction: column;
+  }
+
 `
 
 export const IntroFoto = styled.div`
-  img {
-    width: 225px;
-    margin-right: 40px;
-  }
+  filter: drop-shadow(0 0 0.45rem crimson);
 `;
 
 export const IntroDescription = styled.div`
   max-width: 450px;
+  margin-left: 40px;
+
+  @media (max-width: 817px) {
+    margin-top: 12px;
+    text-align: center;
+    margin-left: 0;
+
+
+    h1 {
+      font-size: 1.5em;
+    }
+  }
 
   p {
     margin-top: 16px;
     font-weight: 500;
     opacity: 0.8;
+
   }
 `;
 
@@ -59,6 +72,13 @@ export const SocialIcons = styled.div`
 
   ul > li > a {
     padding: 20px;
+    font-size: 40px;
+
+    @media (max-width: 480px) {
+      font-size: 25px;
+      padding: 10px;
+
+    }
   }
   
 `;

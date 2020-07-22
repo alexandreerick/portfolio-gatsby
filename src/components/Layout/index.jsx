@@ -5,13 +5,13 @@ import GlobalStyles from '../../styles/global';
 import Header from '../../components/Header';
 
 
-function Layout({ children }) {
+function Layout({ title, children }) {
   return (
     <>
       <GlobalStyles />
       <Helmet>
           <meta charSet="utf-8" />
-          <title>Erick Alexandre - Web Developer</title>
+          <title>{title ? `Erick Alexandre | ${title}` : `Erick Alexandre`}</title>
       </Helmet>
       <Header />
       {children}

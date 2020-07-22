@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import wave from '../assets/wave.svg'
+import wave from '../assets/wave.svg';
 
 export default createGlobalStyle`
   * {
@@ -11,18 +11,19 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #030518 url(${wave}) no-repeat bottom;
+    background: #030518 url(${wave}) no-repeat;
+    background-position: bottom;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
-  }
-
-  body, html {
-    width: 100%;
-    height: 100%;
+    margin: 0 20px;
   }
 
   body, input, button {
     font: 16px -apple-system, Ubuntu, sans-serif;
+  }
+
+  html, body, #___gatsby {
+    min-height: 100%;
   }
 
   button {
@@ -40,7 +41,5 @@ export default createGlobalStyle`
 
   #___gatsby {
     padding: 40px 0px;
-    width: 100%;
-    height: 100%;
   }
 `;

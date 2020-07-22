@@ -9,9 +9,17 @@ export const Header = styled.header`
   margin: 0 auto;
   padding: 10px 0;
 
-  & > a {
-    font-size: 1.3em;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  & > a h1{
+    font-size: 2.5em;
     color: #eee;
+
+    @media (max-width: 600px) {
+      font-size: 2em;
+    }
 
   }
 
@@ -26,6 +34,10 @@ export const Header = styled.header`
     align-items: center;
     font-weight: 700;
 
+    @media (max-width: 600px) {
+      font-size: 1.3em;
+      margin-top: 12px;
+    }
     
   }
 

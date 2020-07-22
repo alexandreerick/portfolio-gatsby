@@ -1,28 +1,16 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
     title: `Erick Alexandre`,
     siteUrl: `https://www.erickalexandre.com`,
-    description: `Olá! Meu nome é Erick Alexandre, sou desenvolvedor web apaixonado pelo ecossistema do React.`,
-    social: [
-      {
-        name: 'github',
-        url: 'https://github.com/alexandreerick'
-      },
-      {
-        name: 'linkedin',
-        url: 'https://www.linkedin.com/in/erick-alexandre-83007b139/'
-      },
-      {
-        name: 'twitter',
-        url: 'https://twitter.com/alexandreErick_'
-      }
-    ]
+    description: `Olá! Meu nome é Erick Alexandre, sou desenvolvedor web apaixonado pelo ecossistema React.`,
+    social: {
+      github: 'https://github.com/alexandreerick',
+      linkedin: 'https://www.linkedin.com/in/erick-alexandre-83007b139/',
+      twitter: 'https://twitter.com/alexandreErick_',
+      gmail: 'mailto:erickalexandrex@gmail.com?subject=Olá%20Erick'
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -70,5 +58,21 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `assets`, `images`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `thumb`,
+        path: path.join(__dirname, `src`, `assets`, `images`, `thumb`),
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ]
 }
