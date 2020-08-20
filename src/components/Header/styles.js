@@ -30,7 +30,7 @@ export const Header = styled.header`
   nav > ul{
     display: flex;
     font-size: 1.4em;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-weight: 700;
 
